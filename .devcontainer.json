@@ -1,0 +1,14 @@
+{
+  "name": "Course Environment",
+  "image": "://microsoft.com",
+  
+  // Automates your course pip installation step cleanly
+  "postCreateCommand": "pip3 install awscli --upgrade --user",
+
+  // Safely injects your hidden secrets without revealing them in the code
+  "containerEnv": {
+    "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+    "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+    "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION}"
+  }
+}
